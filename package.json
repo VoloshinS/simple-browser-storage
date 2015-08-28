@@ -1,7 +1,7 @@
 {
-  "name": "simpleStorage",
-  "version": "0.0.0",
-  "description": "'Module wich gives you opportunity storing your JSON data in localStorage or Cookies (dependent on what is accessible for current browser)'",
+  "name": "simple-browser-storage",
+  "version": "0.0.1",
+  "description": "Module wich gives you opportunity storing your JSON data in localStorage or Cookies (dependent on what is accessible for current browser)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
