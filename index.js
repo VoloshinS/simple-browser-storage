@@ -2,11 +2,11 @@
 var moment = require('moment');
 var _ = require('underscore');
 
-var browserStorage = (function () {
+var browserStorage = function (opts) {
   "use strict";
 
   var module = {};
-  var strgObjName = 'NBNSignup';
+  var strgObjName = opts && opts.name ? opts.name : 'SimpleBrowserStorage';
 
   var hasStorage = (function () {
     try {
@@ -67,6 +67,6 @@ var browserStorage = (function () {
   }
 
   return module;
-}());
+};
 
 module.exports = browserStorage;
