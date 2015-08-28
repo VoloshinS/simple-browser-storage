@@ -5,10 +5,13 @@ Module gives you opportunity to store your simple JSON data in localStorage or C
 
 To install with npm:
 
+```javascript
 npm install --save simple-browser-storage
+```
 
 And then any where you want to use module:
 
+```javascript
 var browserStorage = require('simple-browser-storage');
 
 browserStorage.init(opts);
@@ -17,11 +20,13 @@ browserStorage.init(opts);
 browserStorage.setState(dataObject);
 browserStorage.getState(); // Returns whole data object;
 browserStorage.stateIsExpired(); // Returns whether expired or not dataObject; 
+```
 
 # Options
 
+```javascript
 opts = {
   name: 'String', // Name of JSON object which will be created. Default: "SimpleBrowserStorage"
   existenceTime: 'Number' // Time in minutes after which data will be deleted on next browser refresh. Default: 10
 }
-
+```
