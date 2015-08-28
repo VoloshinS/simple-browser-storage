@@ -1,0 +1,30 @@
+{
+  "name": "simpleStorage",
+  "version": "0.0.0",
+  "description": "'Module wich gives you opportunity storing your JSON data in localStorage or Cookies (dependent on what is accessible for current browser)'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VoloshinS/simpleStorage"
+  },
+  "keywords": [
+    "localStorage",
+    "Cookies",
+    "Cookie",
+    "getState",
+    "setState"
+  ],
+  "author": "VoloshinS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VoloshinS/simpleStorage/issues"
+  },
+  "homepage": "https://github.com/VoloshinS/simpleStorage",
+  "dependencies": {
+    "moment": "^2.10.6",
+    "underscore": "^1.8.3"
+  }
+}
