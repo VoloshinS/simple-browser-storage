@@ -2,11 +2,14 @@
 var moment = require('moment');
 var _ = require('underscore');
 
-var browserStorage = function (opts) {
+var browserStorage = (function () {
   "use strict";
 
   var module = {};
-  var strgObjName = opts && opts.name ? opts.name : 'SimpleBrowserStorage';
+  var opts = {
+    name: 'SimpleBrowserStorage',
+    existenceTime: 10 // in minutes;
+  };
 
   var hasStorage = (function () {
     try {
@@ -21,11 +24,11 @@ var browserStorage = function (opts) {
 
   if (hasStorage) {
     module.setState = function (value) {
-      localStorage.setItem(strgObjName, JSON.stringify(value));
+      localStorage.setItem(opts.name, JSON.stringify(value));
     };
 
     module.getState = function () {
-      return JSON.parse(localStorage.getItem(strgObjName));
+      return JSON.parse(localStorage.getItem(opts.name));
     };
   } else {
     module.setState = function (value) {
@@ -33,11 +36,11 @@ var browserStorage = function (opts) {
       var days100 = 100 * 24 * 60 * 60 * 1000;
       d.setTime(d.getTime() + days100);
       var expires = "expires=" + d.toUTCString();
-      var cookie = [strgObjName, '=', escape(JSON.stringify(value)), ';', expires].join('');
+      var cookie = [opts.name, '=', escape(JSON.stringify(value)), ';', expires].join('');
       document.cookie = cookie;
     };
     module.getState = function () {
-      var result = document.cookie.match(new RegExp(strgObjName + '=([^;]+)'));
+      var result = document.cookie.match(new RegExp(opts.name + '=([^;]+)'));
       if (result) {
         result = JSON.parse(unescape(result[1]));
       }
@@ -45,11 +48,12 @@ var browserStorage = function (opts) {
     };
   }
 
-  module.init = function() {
+  module.init = function(customOpts) {
+    opts = _.defaults(opts, customOpts);
     var state   = this.getState();
     var expires = state.expires;
     var willExpire = {expires: moment()._d}
-    if (!expires || moment().diff(expires, 'minutes') > 10) {
+    if (!expires || moment().diff(expires, 'minutes') > opts.existenceTime) {
       this.setState(willExpire);
       this.expired = true;
     } else {
@@ -67,6 +71,6 @@ var browserStorage = function (opts) {
   }
 
   return module;
-};
+})();
 
 module.exports = browserStorage;
