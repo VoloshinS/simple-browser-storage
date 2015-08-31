@@ -8,22 +8,17 @@ var Storage = Class.extend({
   init: function(opts){
     this.name = opts.name || 'SimpleBrowserStorage';
     this.expiresTime = opts.expiresTime || 10;
-    this.expired = false;
 
-    var state   = this.getState() || {},
-        expires = state.expires,
-        willExpire = {expires: moment()._d};
-
-    if (!expires || moment().diff(expires, 'minutes') > this.expiresTime) {
-      this.setState(willExpire);
-      this.expired = true;
-    } else {
-      this.setState(state);
-      this.expired = false;
+    if (this.stateIsExpired()) {
+      this.setState({expires: moment()._d});
     }
   },
+
   stateIsExpired: function() {
-    return this.expired;
+    var state   = this.getState() || {},
+        expires = state.expires;
+
+    return !expires || moment().diff(expires, 'minutes') > this.expiresTime;
   }
 });
 

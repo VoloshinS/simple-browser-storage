@@ -1,6 +1,6 @@
 {
   "name": "simple-browser-storage",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Module wich gives you opportunity storing your JSON data in localStorage or Cookies (dependent on what is accessible for current browser)",
   "main": "index.js",
   "scripts": {

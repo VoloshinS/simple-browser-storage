@@ -12,14 +12,14 @@ npm install --save simple-browser-storage
 And then any where you want to use module:
 
 ```javascript
-var browserStorage = require('simple-browser-storage');
+var browserStorage = require('simple-browser-storage')({name: 'StorageName', expiresTime: 10});
 
 browserStorage.init(opts);
 // In your Cookies (or localStorage) will be created an empty JSON object.
 // You can communicate with it through following intreface:
 browserStorage.setState(dataObject);
 browserStorage.getState(); // Returns whole data object;
-browserStorage.stateIsExpired(); // Returns whether expired or not dataObject; 
+browserStorage.stateIsExpired(); // Returns whether expired or not dataObject;
 ```
 
 # Options
@@ -27,6 +27,6 @@ browserStorage.stateIsExpired(); // Returns whether expired or not dataObject;
 ```javascript
 opts = {
   name: 'String', // Name of JSON object which will be created. Default: "SimpleBrowserStorage"
-  existenceTime: 'Number' // Time in minutes after which data will be deleted on next browser refresh. Default: 10
+  expiresTime: 'Number' // Time in minutes after which data will be deleted on next browser refresh. Default: 10
 }
 ```
