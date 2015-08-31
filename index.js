@@ -9,9 +9,9 @@ var Storage = Class.extend({
     this.name = opts.name || 'SimpleBrowserStorage';
     this.expiresTime = opts.expiresTime || 10;
 
-    if (this.stateIsExpired()) {
-      this.setState({expires: moment()._d});
-    }
+    var updatedState = this.stateIsExpired() ? {} : this.getState();
+    updatedState.expires = moment()._d;
+    this.setState(updatedState);
   },
 
   stateIsExpired: function() {
