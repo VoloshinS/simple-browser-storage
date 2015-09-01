@@ -2,7 +2,7 @@
 var moment = require('moment');
 var _ = require('underscore');
 
-require('./SimpleInheritance');
+require('./simpleInheritance');
 
 var Storage = Class.extend({
   init: function(opts){
