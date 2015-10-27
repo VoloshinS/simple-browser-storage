@@ -1,6 +1,6 @@
 {
   "name": "simple-browser-storage",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Module wich gives you opportunity storing your JSON data in localStorage or Cookies (dependent on what is accessible for current browser)",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/VoloshinS/simpleStorage",
   "dependencies": {
-    "moment": "^2.10.6",
-    "underscore": "^1.8.3"
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6"
   }
 }

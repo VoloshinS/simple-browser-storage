@@ -1,6 +1,6 @@
 /*global localStorage: false, escape: false, unescape: false */
 var moment = require('moment');
-var _ = require('underscore');
+var _ = require('lodash');
 
 require('./simpleInheritance');
 
