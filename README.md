@@ -12,9 +12,9 @@ npm install --save simple-browser-storage
 And then any where you want to use module:
 
 ```javascript
-var browserStorage = require('simple-browser-storage')({name: 'StorageName', expiresTime: 10});
+var opts = {name: 'StorageName', expiresTime: 10}
+var browserStorage = require('simple-browser-storage')(opts);
 
-browserStorage.init(opts);
 // In your Cookies (or localStorage) will be created an empty JSON object.
 // You can communicate with it through following intreface:
 browserStorage.setState(dataObject);
