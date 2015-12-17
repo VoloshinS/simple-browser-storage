@@ -1,4 +1,4 @@
-import { UserExpection, dateToMins, extend } from './utils'
+import { UserExpection, dateToMins, extend, addMinutes } from './utils'
 
 class Storage {
   constructor(options) {
@@ -7,7 +7,7 @@ class Storage {
     this._expiresTime = opts.expiresTime || 10
 
     let updatedState = this.stateIsExpired() ? {} : this.getState()
-    updatedState.expires = new Date()
+    updatedState.expires = addMinutes(new Date(), this._expiresTime)
     this.updateState(updatedState)
   }
 
@@ -26,7 +26,7 @@ class Storage {
 
   updateState(valueObj) {
     if (valueObj && !valueObj.expires) {
-      valueObj.expires = new Date()
+      valueObj.expires = addMinutes(new Date(), this._expiresTime)
     }
     return valueObj
   }
@@ -37,7 +37,7 @@ class Storage {
     if (!state.expires) { return true }
 
     let expires = dateToMins(state.expires),
-      isExpired = (dateToMins() - expires) > this._expiresTime
+      isExpired = dateToMins() > expires
     return isExpired
   }
 }

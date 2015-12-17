@@ -11,6 +11,10 @@ let dateToMins = (date) => {
   return d.getTime() / 60 / 1000
 }
 
+let addMinutes = (date, minutes) => {
+  return new Date(date.getTime() + minutes * 60000);
+}
+
 let extend = (defaults, options) => {
   let prop,
     extended = {}
@@ -34,5 +38,6 @@ let extend = (defaults, options) => {
 export default {
   UserExpection: UserExpection,
   dateToMins: dateToMins,
+  addMinutes: addMinutes,
   extend: extend
 }

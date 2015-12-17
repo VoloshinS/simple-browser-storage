@@ -1,7 +1,7 @@
 {
   "name": "simple-browser-storage",
   "description": "Module wich gives you opportunity storing your JSON data in localStorage or Cookies (dependent on what is accessible for current browser)",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/simple-browser-storage.min.js",
   "repository": {
     "type": "git",
