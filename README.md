@@ -1,4 +1,4 @@
-# simpleStorage
+# simple-browser-storage
 Module gives you opportunity to store your simple JSON data in localStorage or Cookies (dependent on what is accessible for current browser)
 
 # Usage
